@@ -249,6 +249,6 @@ def replace_korean_pii(text: str):
 
 def make_compat(text):
     # code by kyubyong park
-    text = unicodedata.normalize("NFC", text)
-    text = re.sub("[\u1100-\u11FF]", "", text)
+    text = unicodedata.normalize("NFC", text) # NFC: text = “안녕”, text[0] → 안
+    text = re.sub("[\u1100-\u11FF]", "", text) # 단일 자음 or 모음 제거
     return text
